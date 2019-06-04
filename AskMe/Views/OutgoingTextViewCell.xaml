@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:utility="clr-namespace:AskMe.Utility"
+             x:Class="AskMe.Views.OutgoingTextViewCell">
+  <ViewCell.View>
+        <Grid Margin="0,0,0,0" BackgroundColor="#00677F" MinimumHeightRequest="85">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid HeightRequest="58"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid Padding="20,10,10,10">
+                <Label Text="{Binding DisplayText}"
+                       FontFamily="Segoe UI" FontSize="17"
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" 
+                       TextColor="#FFFFFF"/>
+            </Grid>
+            <!--<Grid Grid.Column="1" Padding="0,10,0,10" BackgroundColor="#00566A" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" HeightRequest="38">
+                    <Label x:Name="userLabel" FontFamily="Segoe UI" FontSize="24" TextColor="#FFFFFF"
+                       HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Grid>
+            </Grid>-->
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

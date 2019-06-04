@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AskMe.LoginPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.RowSpan="2" Source="logo_ipad3.png" Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout HeightRequest="22" WidthRequest="148" Margin="0,0,0,0"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                    <Label Margin="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       Text="iLink Systems" TextColor="White" FontSize="20"/>
+                </StackLayout>
+                <StackLayout HeightRequest="22" WidthRequest="22" Margin="0,30,16,0"
+                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                    <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       IsVisible="False"
+                       Source="info.png" Aspect="AspectFit"/>
+                </StackLayout>
+                <Label Grid.Row="1" Text="Ask Me" Margin="0,6,0,6"
+                   TextColor="#FFFFFF" FontFamily="Segoe UI" FontSize="13"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            </Grid>
+            <Grid Grid.Row="1" BackgroundColor="White" 
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Margin="20,50,20,20" Spacing="20"
+                         BackgroundColor="White"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="44"/>
+                        </Grid.RowDefinitions>
+                    <Frame HasShadow="False"
+                           OutlineColor="#00677F" BorderColor="#00677F"
+                           Margin="0" Padding="10,5,10,5" CornerRadius="22"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Entry x:Name="userNameEntry" BackgroundColor="White"
+                               HorizontalOptions="FillAndExpand"
+                               FontFamily="Segoe UI"
+                               Keyboard="Text"
+                               Placeholder="Name"/>
+                        </Frame>
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="44"/>
+                        </Grid.RowDefinitions>
+                    <Frame HasShadow="False" 
+                           OutlineColor="#00677F" BorderColor="#00677F"
+                           Margin="0" Padding="10,5,10,5" CornerRadius="22"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Entry x:Name="emailEntry" BackgroundColor="White"
+                       HorizontalOptions="FillAndExpand"
+                       FontFamily="Segoe UI"
+                       Keyboard="Email" Placeholder="Email"/>
+                    </Frame>
+                    </Grid>
+                    <Button x:Name="continueBtn" BackgroundColor="#00677F" TextColor="White"
+                        HorizontalOptions="CenterAndExpand" BorderRadius="22"
+                        FontFamily="Segoe UI"
+                        HeightRequest="44" WidthRequest="150"
+                        Text="Continue" Clicked="ContinueBtn_Clicked"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

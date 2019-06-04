@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:AskMe.ViewModel"
+             xmlns:utility="clr-namespace:AskMe.Utility"
+             xmlns:controls="clr-namespace:AskMe.Controls"
+             xmlns:behavior="clr-namespace:AskMe.Behaviors"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true"
+             BackgroundColor="#E65222"
+             x:Class="AskMe.MainPage">
+
+    <ContentPage.Resources>
+        <utility:ListViewTemplateSelector x:Key="listViewTemplateSelector"/>
+        <utility:InverseBoolConverter x:Key="inverseBoolConverter"/>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModel:MainPageViewModel/>
+    </ContentPage.BindingContext>
+
+    <!--<ContentPage.Behaviors>
+        <behavior:MainPageBehavior/>
+    </ContentPage.Behaviors>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <!--<Image Grid.RowSpan="3" Source="logo_ipad3.png" Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout WidthRequest="148" Margin="0,0,0,0"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand">
+                <Label Margin="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       Text="AskMe" TextColor="White" FontSize="32"/>
+            </StackLayout>
+            <!--<StackLayout HeightRequest="22" WidthRequest="22" Margin="0,30,16,0"
+                         HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                <Image HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                       IsVisible="False"
+                       Source="info.png" Aspect="AspectFit"/>
+            </StackLayout>-->
+            <Label Grid.Row="1" Text="by iLink Systems" Margin="0,3,0,10"
+                   TextColor="#FFFFFF" FontFamily="Segoe UI" FontSize="13"
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Grid>
+        <ScrollView x:Name="scrollView" Grid.Row="1" BackgroundColor="#E6E6E6"
+                    HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" 
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid x:Name="ListGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  HeightRequest="{Binding Height, Source={x:Reference scrollView}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView x:Name="listView" BackgroundColor="#E6E6E6" HasUnevenRows="True" SeparatorVisibility="None"
+                          ItemsSource="{Binding Messages}" ItemTemplate="{StaticResource listViewTemplateSelector}"
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ListView.Header>
+                        <Grid Margin="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label x:Name="headerLabel" Text="{Binding HeaderText}" Margin="10,20,10,10"
+                                   HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                                   TextColor="#000000"
+                                   FontFamily="Segoe UI" FontSize="24" FontAttributes="Bold" />
+                        </Grid>
+                    </ListView.Header>
+                    <ListView.Footer>
+                        <Grid HeightRequest="58">
+                            <sync:SfListView x:Name="heroCardList" Margin="10,0,10,0" Orientation="Horizontal" IsScrollBarVisible="False"
+                                             AutoFitMode="Height" SelectionMode="None" ItemSpacing="5"
+                                             ItemsSource="{Binding HeroCardButtons}">
+                                <!--<sync:SfListView.HeaderTemplate>
+                                    <DataTemplate>
+                                        <Grid WidthRequest="55"/>
+                                    </DataTemplate>
+                                </sync:SfListView.HeaderTemplate>-->
+                                <sync:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <controls:CustomGrid Grid.Row="1" HeightRequest="35"
+                                                             Command="{Binding Source={x:Reference heroCardList}, Path=BindingContext.HeroCardTapCommand}"
+                                                             CommandParameter="{Binding .}"
+                                                             HorizontalOptions="FillAndExpand" 
+                                                             VerticalOptions="CenterAndExpand">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="35"/>
+                                            </Grid.RowDefinitions>
+                                            <Frame HasShadow="False" BackgroundColor="White"
+                                                   Margin="0" Padding="0" CornerRadius="18"
+                                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                                <Label Text="{Binding Title}" TextColor="#111111" Margin="12,0,12,0"
+                                                       FontFamily="Segoe UI" FontSize="17"
+                                                       VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                                            </Frame>
+                                        </controls:CustomGrid>
+                                    </DataTemplate>
+                                </sync:SfListView.ItemTemplate>
+                            </sync:SfListView>
+                        </Grid>
+                    </ListView.Footer>
+                </ListView>
+                <Grid Grid.Row="1" BackgroundColor="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="listeningbar.png" Aspect="AspectFill" IsVisible="{Binding IsRecording}"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    <Grid Grid.Row="1" x:Name="bottomEntryGrid" HeightRequest="35" Margin="15,5,15,5"
+                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                        </Grid.RowDefinitions>
+                    <Frame HasShadow="False"
+                           OutlineColor="#00677F" BorderColor="#00677F"
+                           Margin="0" Padding="0" CornerRadius="18"
+                           HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid HeightRequest="35">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Entry x:Name="entry" Margin="12,-4,36,-4"
+                                   FontFamily="Segoe UI" FontSize="17" 
+                                   IsEnabled="{Binding IsRecording, Converter={StaticResource inverseBoolConverter}}"
+                                   Placeholder="{Binding PlaceHolderText}" 
+                                   Text="{Binding EntryText}"
+                                   IsSpellCheckEnabled="False"
+                                   ReturnType="Send"
+                                   ReturnCommand="{Binding EntryReturnCommand}" ReturnCommandParameter="{x:Reference listView}"
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        </Grid>
+                    </Frame>
+                    </Grid>
+                    <controls:CustomGrid x:Name="bottomIconsGrid" Grid.Row="1" BackgroundColor="Transparent" Padding="15,5,15,5" 
+                                         HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"
+                                         Command="{Binding SendRecordCommand}" CommandParameter="{x:Reference listView}"
+                                         HeightRequest="44" WidthRequest="44">
+                        <Image Source="icon_microphone.png" Margin="4,4,4,13" 
+                                       HeightRequest="28" WidthRequest="28"
+                                       IsVisible="{Binding CanSend, Converter={StaticResource inverseBoolConverter}}"
+                                       HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                        <Image Source="icon_cancel.png" Margin="4,4,4,13" 
+                                       HeightRequest="28" WidthRequest="28"
+                                       IsVisible="{Binding IsRecording}"
+                                       HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                        <Image Source="icon_send.png" Margin="4,4,4,13"  
+                                       IsVisible="{Binding CanSend}"
+                                       HeightRequest="28" WidthRequest="28"
+                                       HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                    </controls:CustomGrid>
+                </Grid>
+            </Grid>
+        </ScrollView>
+        <Grid Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+              BackgroundColor="White">
+            <!--<BoxView HeightRequest="2" Margin="0,27,0,0" BackgroundColor="#363636" WidthRequest="130"
+                     HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"/>-->
+        </Grid>
+    </Grid>
+</ContentPage>

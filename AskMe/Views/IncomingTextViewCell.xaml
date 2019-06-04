@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+          x:Class="AskMe.Views.IncomingTextViewCell">
+    <ViewCell.View>
+        <Grid Margin="0,0,0,0" BackgroundColor="#FFFFFF" MinimumHeightRequest="75">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="IconGrid" BackgroundColor="#F2F2F2" Padding="10,7,10,7"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="icon_askme_voice.png" 
+                       HeightRequest="44" WidthRequest="44" Aspect="AspectFit"
+                       HorizontalOptions="Center" VerticalOptions="Start"/>
+                <!--<lottie:AnimationView x:Name="animationView" 
+                                      Animation="askme_talking.json" 
+                                      Loop="true" AutoPlay="True" IsVisible="{Binding IsSpeaking}"
+                                      HeightRequest="38" WidthRequest="44"
+                                      HorizontalOptions="Center" VerticalOptions="Start" />-->
+            </Grid>
+            <Grid Grid.Column="1" Padding="10">
+                <Label FormattedText="{Binding FormattedText}"
+                       FontFamily="Segoe UI" FontSize="17"
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" 
+                       TextColor="#111111"/>
+            </Grid>
+        </Grid>
+    </ViewCell.View>
+</ViewCell>

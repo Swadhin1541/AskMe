@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<controls:ChartView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:AskMe.Controls"
+             xmlns:progressBar="clr-namespace:Syncfusion.XForms.ProgressBar;assembly=Syncfusion.SfProgressBar.XForms"
+             x:Name="HorizontalBars"
+             x:Class="AskMe.Controls.HorizontalBarList">
+    <controls:ChartView.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" Margin="10,0,6,0">
+            <Label Text="{Binding Title, Source={x:Reference HorizontalBars}}" Margin="0,10,0,5"
+                   FontSize="18" TextColor="#000000"
+                   VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <ListView x:Name="listView" ItemsSource="{Binding DataSource, Source={x:Reference HorizontalBars}}" 
+                      RowHeight="58" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid VerticalOptions="CenterAndExpand" Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="26"/>
+                                    <RowDefinition Height="1"/>
+                                </Grid.RowDefinitions>
+                                <Grid Margin="0,0,0,4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ScrollView Margin="0,0,8,0" Padding="0" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                                    <Label Text="{Binding Value}" LineBreakMode="TailTruncation"
+                                           FontSize="16" FontAttributes="Bold"
+                                           VerticalOptions="Center" HorizontalOptions="Start"/>
+                                    </ScrollView>
+                                    <Label Grid.Column="1" Text="{Binding Count, StringFormat='{0:N0}'}"
+                                           FontSize="12" FontAttributes="Bold"
+                                           VerticalOptions="Center" HorizontalOptions="End"/>
+                                </Grid>
+                                <Grid Grid.Row="1" HeightRequest="26">
+                                    <progressBar:SfLinearProgressBar Progress="{Binding Percentage}" 
+                                                                     x:Name="LinearProgressBar"
+                                                                     ProgressColor="#007a93"
+                                                                     TrackColor="#e4f0f3"
+                                                                     TrackHeight="16"
+                                                                     HeightRequest="16"
+                                                                     Maximum="{Binding MaximumValue, Source={x:Reference HorizontalBars}}"
+                                                                     Margin="0"
+                                                                     HorizontalOptions="Center"
+                                                                     VerticalOptions="Start">
+                                    </progressBar:SfLinearProgressBar>
+                                </Grid>
+                                <BoxView Grid.Row="2" BackgroundColor="LightGray" HeightRequest="1" 
+                                      HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid x:Name="ShowMoreGrid" HeightRequest="38" Margin="0,6,0,0" >
+                <Button x:Name="ShowMoreButton" Text="Show Less"
+                        TextColor="#00677F" FontAttributes="Bold" FontSize="14"
+                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                        Clicked="ShowMoreButton_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </controls:ChartView.Content>
+</controls:ChartView>

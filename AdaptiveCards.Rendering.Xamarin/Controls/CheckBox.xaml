@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AdaptiveCards.Rendering.Xamarin.CheckBox">
+  <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1"/>
+            </Grid.RowDefinitions>
+            <Grid HeightRequest="43"/>
+            <StackLayout Orientation="Horizontal" >
+                <Grid MinimumHeightRequest="25" MinimumWidthRequest="25"
+                  HeightRequest="25" WidthRequest="25" HorizontalOptions="Start">
+                    <Image x:Name="NotSelectedImage" HeightRequest="25" WidthRequest="25"
+                           VerticalOptions="CenterAndExpand"
+                           Aspect="AspectFit"/>
+                    <Image x:Name="SelectedImage" HeightRequest="25" WidthRequest="25"
+                           VerticalOptions="CenterAndExpand"
+                       Aspect="AspectFit" IsVisible="False"/>
+                </Grid>
+                <Label x:Name="TextLabel" Margin="5,0,0,0" FontSize="Medium"
+                   VerticalOptions="CenterAndExpand"
+                   LineBreakMode="WordWrap"/>
+            </StackLayout>
+            <BoxView Grid.Row="1" BackgroundColor="LightGray" HeightRequest="1" 
+                      HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

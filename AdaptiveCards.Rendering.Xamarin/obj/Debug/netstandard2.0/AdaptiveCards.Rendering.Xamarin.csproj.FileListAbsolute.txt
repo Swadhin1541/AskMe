@@ -1,0 +1,11 @@
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\bin\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.deps.json
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\bin\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.dll
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\bin\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.pdb
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.csprojAssemblyReference.cache
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\Controls\CheckBox.xaml.g.cs
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.AssemblyInfoInputs.cache
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.AssemblyInfo.cs
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.dll
+C:\Users\Lenovo\Desktop\ps-askme-master\AdaptiveCards.Rendering.Xamarin\obj\Debug\netstandard2.0\AdaptiveCards.Rendering.Xamarin.pdb

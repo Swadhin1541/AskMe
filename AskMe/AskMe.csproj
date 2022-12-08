@@ -14,7 +14,7 @@
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.5.4" />
     <PackageReference Include="Microsoft.Bot.Connector.DirectLine" Version="3.0.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.11" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="16.2.0.46" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="16.2.0.50" />
     <PackageReference Include="Syncfusion.Xamarin.SfProgressBar" Version="16.2.0.46" />
